@@ -7,15 +7,29 @@ namespace player1
     public class Player1Movement : MonoBehaviour
     {
         public Rigidbody2D rb;
-
+        [Header("Speed Variables")]
         public int speed = 5;
+        public int baseSpeed = 5;
+        public int speedUp = 10;
         public int jumpSpeed = 15;
-
+        [Header("Jumps")]
         public int jumps = 2;
+        public int bonusJump = 0;
+        public bool canJump;
+        [Header("Lives")]
+        public int lives = 1;
+        public int hearts;
+        [Header("Objects")]
+        public GameObject player1, player1Sprite, deathScreen;
+        [Header("Power Up Bools")]
+        public bool big = false;
+        public bool fast = false;
+        public bool bonusJumpB = false;
 
-        public GameObject player1Sprite;
-
-
+        void Awake()
+        {
+            hearts = 2;
+        }
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -23,15 +37,38 @@ namespace player1
 
         public void Update()
         {
+            if (jumps == 0)
+            {
+                canJump = false;
+            }
             if (jumps > 0)
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                canJump = true;
+            }
+            if (bonusJump == 0)
+            {
+                bonusJumpB = false;
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if (canJump)
                 {
                     rb.velocity = new Vector2(0, 1) * jumpSpeed;
                     jumps--;
                 }
+                if (bonusJumpB && !canJump)
+                {
+                    rb.velocity = new Vector2(0, 1) * jumpSpeed;
+                    bonusJump--;
+                   
+                }
+            }
+            if (hearts == 0)
+            {
+                Death();
             }
         }
+
 
         public void FixedUpdate()
         {
@@ -51,11 +88,24 @@ namespace player1
             {
                 jumps = 2;
             }
-            if (Grounded.gameObject.tag == "Death")
+            if (Grounded.gameObject.tag == "DeathGround")
             {
-
-                player1Sprite.SetActive(false);
-                Time.timeScale = 0;
+                Death();
+            }
+            if (Grounded.gameObject.tag == "ScaleUp" && big == false)
+            {
+                player1.transform.localScale += new Vector3(+1, +1, 0);
+                big = true;
+            }
+            if (Grounded.gameObject.tag == "SpeedUp" && fast == false)
+            {
+                speed = speedUp;
+                fast = true;
+            }
+            if (Grounded.gameObject.tag == "BonusJump")
+            {
+                bonusJump++;
+                bonusJumpB = true;
             }
         }
         private void OnTriggerExit2D(Collider2D Air)
@@ -64,6 +114,13 @@ namespace player1
             {
                 jumps = 1;
             }
-        }             
+        }
+        public void Death()
+        {
+            hearts = 0;
+            player1Sprite.SetActive(false);
+            deathScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 }

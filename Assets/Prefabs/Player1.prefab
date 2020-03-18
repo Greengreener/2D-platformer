@@ -293,4 +293,7 @@ MonoBehaviour:
   speed: 5
   jumpSpeed: 15
   jumps: 2
+  player1: {fileID: 9153773064452884119}
   player1Sprite: {fileID: 9153773062617105269}
+  deathScreen: {fileID: 0}
+  big: 0
