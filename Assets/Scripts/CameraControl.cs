@@ -17,16 +17,5 @@ public class CameraControl : MonoBehaviour
     void FixedUpdate()
     {
         transform.position = Vector3.Lerp(currentPos.position, playerPos.position, 5f * Time.fixedDeltaTime);
-        if (Vector3.Distance(currentPos.position, playerPos.position) >= 3 )
-       {
-            camMovement();
-       }
-       else
-       {
-            //camMovement();
-       }
-    }
-    public void camMovement()
-    {
     }
 }
