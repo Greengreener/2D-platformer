@@ -1406,10 +1406,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 210937672, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 794303664, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 791860780}
+    - target: {fileID: 794303664, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
+      propertyPath: sprintSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 794303664, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
+      propertyPath: speedUp
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 9153773064452884116, guid: cfc72a86d23de604486a6063d1968ddb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1423,7 +1435,7 @@ PrefabInstance:
     - target: {fileID: 9153773064452884116, guid: cfc72a86d23de604486a6063d1968ddb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9153773064452884116, guid: cfc72a86d23de604486a6063d1968ddb,
         type: 3}
