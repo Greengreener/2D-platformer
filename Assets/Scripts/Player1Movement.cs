@@ -25,6 +25,10 @@ namespace player1
         public bool big = false;
         public bool fast = false;
         public bool bonusJumpB = false;
+        [Header("Count Fown Times")]
+        public float baseCountDown;
+        public float bigCountDown;
+        public float speedCountDown;
 
         void Awake()
         {
@@ -33,6 +37,8 @@ namespace player1
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
+            bigCountDown = baseCountDown;
+            speedCountDown = baseCountDown;
         }
 
         public void Update()
@@ -67,6 +73,29 @@ namespace player1
             {
                 Death();
             }
+            #region Powerups update
+            //Big count down
+            if (big)
+            {
+                BigCounter();           
+            }
+            if (bigCountDown <= 0)
+            {
+                GrowSmall();
+                bigCountDown = baseCountDown;
+            }
+            //Speed count down
+            if (fast)
+            {
+                SpeedCounter();
+            }
+            if (speedCountDown <= 0)
+            {
+                SpeedSlow();
+                speedCountDown = baseCountDown;
+            }
+            #endregion
+
         }
 
 
@@ -94,18 +123,21 @@ namespace player1
             }
             if (Grounded.gameObject.tag == "ScaleUp" && big == false)
             {
-                player1.transform.localScale += new Vector3(+1, +1, 0);
-                big = true;
+                Debug.Log("Biggened");
+                GrowBig();                               
             }
             if (Grounded.gameObject.tag == "SpeedUp" && fast == false)
             {
-                speed = speedUp;
-                fast = true;
+                SpeedFast();
             }
             if (Grounded.gameObject.tag == "BonusJump")
             {
                 bonusJump++;
                 bonusJumpB = true;
+            }
+            if (Grounded.gameObject.tag == "Heart")
+            {
+                hearts++;
             }
         }
         private void OnTriggerExit2D(Collider2D Air)
@@ -122,5 +154,35 @@ namespace player1
             deathScreen.SetActive(true);
             Time.timeScale = 0;
         }
+        #region Powerups
+        public void GrowBig()
+        {
+            player1.transform.localScale += new Vector3(+1, +1, 0);
+            big = true;
+        }
+        public void GrowSmall()
+        {
+            player1.transform.localScale += new Vector3(-1, -1, 0);
+            big = false;
+        }
+        public void BigCounter()
+        {
+            bigCountDown -= Time.deltaTime;            
+        }
+        public void SpeedFast()
+        {
+            speed = speedUp;
+            fast = true;
+        }
+        public void SpeedSlow()
+        {
+            speed = baseSpeed;
+            fast = false;
+        }
+        public void SpeedCounter()
+        {
+            speedCountDown -= Time.deltaTime;
+        }
+        #endregion
     }
 }
