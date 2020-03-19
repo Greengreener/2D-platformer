@@ -10,7 +10,6 @@ TagManager:
   - SpeedUp
   - DeathGround
   - BonusJump
-  - SlowMo
   layers:
   - Default
   - TransparentFX

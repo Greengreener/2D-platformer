@@ -92,28 +92,20 @@ namespace player1
             {
                 Death();
             }
-            //Size up
             if (Grounded.gameObject.tag == "ScaleUp" && big == false)
             {
                 player1.transform.localScale += new Vector3(+1, +1, 0);
                 big = true;
             }
-            // speed boost
             if (Grounded.gameObject.tag == "SpeedUp" && fast == false)
             {
                 speed = speedUp;
                 fast = true;
             }
-            //Extra jump
             if (Grounded.gameObject.tag == "BonusJump")
             {
                 bonusJump++;
                 bonusJumpB = true;
-            }
-            //Slow motion
-            if (Grounded.gameObject.tag == "SlowMo")
-            {
-                Time.timeScale = 0.5f;
             }
         }
         private void OnTriggerExit2D(Collider2D Air)
