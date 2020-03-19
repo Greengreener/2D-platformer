@@ -1410,22 +1410,6 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 791860780}
-    - target: {fileID: 794303664, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
-      propertyPath: baseCountDown
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 794303664, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
-      propertyPath: bigCountDown
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 794303664, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
-      propertyPath: big
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 794303665, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9153773064452884116, guid: cfc72a86d23de604486a6063d1968ddb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1486,6 +1470,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 794303665, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfc72a86d23de604486a6063d1968ddb, type: 3}
