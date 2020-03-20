@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &210937673
 Transform:
   m_ObjectHideFlags: 0
@@ -177,6 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9153773064452884116}
   - component: {fileID: 9153773064452884117}
+  - component: {fileID: 339717865}
   - component: {fileID: 9153773064452884118}
   - component: {fileID: 794303664}
   m_Layer: 0
@@ -227,7 +228,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.69925857, y: 1}
+  m_Size: {x: 0.7, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &339717865
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153773064452884119}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.5309675}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.06, y: 0.05}
   m_EdgeRadius: 0
 --- !u!50 &9153773064452884118
 Rigidbody2D:
@@ -265,13 +292,15 @@ MonoBehaviour:
   rb: {fileID: 0}
   speed: 5
   baseSpeed: 5
-  speedUp: 10
+  sprintSpeed: 7
+  speedUp: 2
   jumpSpeed: 15
   jumps: 2
   bonusJump: 0
   canJump: 0
   lives: 1
   hearts: 0
+  respawnPos: {x: 0, y: 0, z: 0}
   player1: {fileID: 9153773064452884119}
   player1Sprite: {fileID: 9153773062617105269}
   deathScreen: {fileID: 0}
@@ -281,3 +310,4 @@ MonoBehaviour:
   baseCountDown: 15
   bigCountDown: 1
   speedCountDown: 0
+  textHearts: {fileID: 0}
