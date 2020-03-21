@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace player1
 {
-    public class Player1Movement : MonoBehaviour
+    public class Player1 : MonoBehaviour
     {
         public Rigidbody2D rb;
         [Header("Speed Variables")]
         public int speed = 5;
         public int baseSpeed = 5;
-        public int speedUp = 10;
+        public int sprintSpeed = 7;
+        public int speedUp = 2;
         public int jumpSpeed = 15;
         [Header("Jumps")]
         public int jumps = 2;
@@ -19,6 +21,7 @@ namespace player1
         [Header("Lives")]
         public int lives = 1;
         public int hearts;
+        public Vector3 respawnPos;
         [Header("Objects")]
         public GameObject player1, player1Sprite, deathScreen;
         [Header("Power Up Bools")]
@@ -29,16 +32,20 @@ namespace player1
         public float baseCountDown;
         public float bigCountDown;
         public float speedCountDown;
+        [Header("UI")]
+        public Text textHearts;
 
         void Awake()
         {
-            hearts = 2;
+            hearts = 100;
         }
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
             bigCountDown = baseCountDown;
             speedCountDown = baseCountDown;
+            respawnPos = transform.position;
+            Debug.Log(respawnPos);
         }
 
         public void Update()
@@ -66,18 +73,27 @@ namespace player1
                 {
                     rb.velocity = new Vector2(0, 1) * jumpSpeed;
                     bonusJump--;
-                   
+                    Debug.Log("ExtraJumpLoss");
+
                 }
             }
             if (hearts == 0)
             {
                 Death();
             }
+            if (Input.GetButtonDown("Shift"))
+            {
+                speed = sprintSpeed;
+            }
+            if (Input.GetButtonUp("Shift"))
+            {
+                speed = baseSpeed;
+            }
             #region Powerups update
             //Big count down
             if (big)
             {
-                BigCounter();           
+                BigCounter();
             }
             if (bigCountDown <= 0)
             {
@@ -95,6 +111,7 @@ namespace player1
                 speedCountDown = baseCountDown;
             }
             #endregion
+            textHearts.text = ("Hearts: ") + hearts.ToString();
 
         }
 
@@ -119,25 +136,34 @@ namespace player1
             }
             if (Grounded.gameObject.tag == "DeathGround")
             {
-                Death();
+                this.transform.position = respawnPos;
+                rb.velocity = new Vector3(0,0,0);
+                hearts--;
             }
             if (Grounded.gameObject.tag == "ScaleUp" && big == false)
             {
-                Debug.Log("Biggened");
-                GrowBig();                               
+                Debug.Log("Embiggen");
+                GrowBig();
+                Destroy(Grounded.gameObject);
             }
             if (Grounded.gameObject.tag == "SpeedUp" && fast == false)
             {
+                Debug.Log("Sanic");
                 SpeedFast();
+                Destroy(Grounded.gameObject);
             }
             if (Grounded.gameObject.tag == "BonusJump")
             {
                 bonusJump++;
                 bonusJumpB = true;
+                Destroy(Grounded.gameObject);
+                Debug.Log("Extra jump");
             }
             if (Grounded.gameObject.tag == "Heart")
             {
                 hearts++;
+                Debug.Log("Babump");
+                Destroy(Grounded.gameObject);
             }
         }
         private void OnTriggerExit2D(Collider2D Air)
@@ -145,11 +171,13 @@ namespace player1
             if (Air.gameObject.tag == "Ground")
             {
                 jumps = 1;
+                respawnPos = this.transform.position - new Vector3(rb.velocity.x*0.01f,0,0);
+                Debug.Log(respawnPos);
             }
         }
         public void Death()
         {
-            hearts = 0;
+            //hearts = 0;
             player1Sprite.SetActive(false);
             deathScreen.SetActive(true);
             Time.timeScale = 0;
@@ -167,11 +195,11 @@ namespace player1
         }
         public void BigCounter()
         {
-            bigCountDown -= Time.deltaTime;            
+            bigCountDown -= Time.deltaTime;
         }
         public void SpeedFast()
         {
-            speed = speedUp;
+            speed = speed * speedUp;
             fast = true;
         }
         public void SpeedSlow()
