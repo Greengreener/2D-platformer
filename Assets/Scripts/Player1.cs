@@ -86,14 +86,17 @@ public class Player1 : MonoBehaviour
 
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        #region Old code
+        /*if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             mousePosition = Input.mousePosition;
+            mousePosition.z = 10;
+
             chuckPositive = new Vector2(chuckDir, 0);
             chuckRotation.rotation = Quaternion.FromToRotation(chuckPoint.transform.position, mousePosition);
             Instantiate(bombPrefab, chuckPoint.transform.position, chuckRotation.rotation);
-            /*Vector2 mousePosition2 = mousePosition;
-            StickyBomb.rb2D.AddForce(mousePosition2);*/
+            *//*Vector2 mousePosition2 = mousePosition;
+            StickyBomb.rb2D.AddForce(mousePosition2);*//*
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -104,7 +107,8 @@ public class Player1 : MonoBehaviour
         {
             chuckPoint.transform.position = chuckRight.position;
             chuckDir = 1;
-        }
+        }*/
+        #endregion
         if (Input.GetButtonDown("Shift"))
         {
             speed = sprintSpeed;

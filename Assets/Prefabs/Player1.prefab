@@ -57,36 +57,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.5}
   m_EdgeRadius: 0
---- !u!1 &589535674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 589535675}
-  m_Layer: 0
-  m_Name: ChuckRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &589535675
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589535674}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.64, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 9153773064452884116}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041682787
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,36 +87,6 @@ Transform:
   m_Father: {fileID: 9153773064452884116}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &7893795964782574210
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 315262208298676743}
-  m_Layer: 0
-  m_Name: ChuckLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &315262208298676743
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7893795964782574210}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.64, y: 0.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 9153773064452884116}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9153773062617105269
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 9153773062617105269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 7, z: 1}
+  m_LocalScale: {x: 1.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 9153773064452884116}
   m_RootOrder: 0
@@ -216,8 +156,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 686a740baa782934288e84db2dd2edaa, type: 3}
+  m_Color: {r: 0.40650585, g: 0.7010701, b: 0.8207547, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -261,8 +201,6 @@ Transform:
   - {fileID: 9153773062617105268}
   - {fileID: 1041682788}
   - {fileID: 210937673}
-  - {fileID: 589535675}
-  - {fileID: 315262208298676743}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -290,7 +228,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 1}
+  m_Size: {x: 1.75, y: 0.75}
   m_EdgeRadius: 0
 --- !u!61 &339717865
 BoxCollider2D:
@@ -305,7 +243,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5309675}
+  m_Offset: {x: 0, y: -0.40331665}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -316,7 +254,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.05}
+  m_Size: {x: 1.5, y: 0.05336672}
   m_EdgeRadius: 0
 --- !u!50 &9153773064452884118
 Rigidbody2D:
@@ -372,7 +310,11 @@ MonoBehaviour:
   speedCountDown: 0
   bombPrefab: {fileID: 4943192019375681753, guid: 1430d22b0f8251648a59da0d28101499,
     type: 3}
-  chuckPoint: {fileID: 589535675}
-  chuckLeft: {fileID: 315262208298676743}
-  chuckRight: {fileID: 589535675}
+  chuckPoint: {fileID: 0}
+  chuckPointTrans: {x: 0, y: 0, z: 0}
+  chuckLeft: {fileID: 0}
+  chuckRight: {fileID: 0}
+  chuckPositive: {x: 0, y: 0}
+  mousePosition: {x: 0, y: 0, z: 0}
+  chuckRotation: {fileID: 0}
   textHearts: {fileID: 0}
