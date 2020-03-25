@@ -57,6 +57,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 0.5}
   m_EdgeRadius: 0
+--- !u!1 &589535674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 589535675}
+  m_Layer: 0
+  m_Name: ChuckRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &589535675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589535674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.64, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9153773064452884116}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1041682787
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +116,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9153773064452884116}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7893795964782574210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 315262208298676743}
+  m_Layer: 0
+  m_Name: ChuckLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &315262208298676743
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7893795964782574210}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.64, y: 0.15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9153773064452884116}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9153773062617105269
 GameObject:
@@ -201,6 +261,8 @@ Transform:
   - {fileID: 9153773062617105268}
   - {fileID: 1041682788}
   - {fileID: 210937673}
+  - {fileID: 589535675}
+  - {fileID: 315262208298676743}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,7 +316,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.06, y: 0.05}
+  m_Size: {x: 0.25, y: 0.05}
   m_EdgeRadius: 0
 --- !u!50 &9153773064452884118
 Rigidbody2D:
@@ -291,7 +353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   speed: 5
-  baseSpeed: 5
   sprintSpeed: 7
   speedUp: 2
   jumpSpeed: 15
@@ -307,7 +368,11 @@ MonoBehaviour:
   big: 0
   fast: 0
   bonusJumpB: 0
-  baseCountDown: 15
   bigCountDown: 1
   speedCountDown: 0
+  bombPrefab: {fileID: 4943192019375681753, guid: 1430d22b0f8251648a59da0d28101499,
+    type: 3}
+  chuckPoint: {fileID: 589535675}
+  chuckLeft: {fileID: 315262208298676743}
+  chuckRight: {fileID: 589535675}
   textHearts: {fileID: 0}
