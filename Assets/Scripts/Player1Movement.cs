@@ -156,6 +156,12 @@ namespace player1
                 Debug.Log("Babump");
                 Destroy(Grounded.gameObject);
             }
+            if (Grounded.gameObject.tag == "EnemyHead")
+            {
+                rb.velocity = new Vector2(0, 1) * jumpSpeed;
+
+                Destroy(Grounded.transform.parent.gameObject);
+             }
         }
         private void OnTriggerExit2D(Collider2D Air)
         {

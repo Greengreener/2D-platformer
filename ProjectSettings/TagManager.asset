@@ -11,6 +11,7 @@ TagManager:
   - DeathGround
   - BonusJump
   - Heart
+  - EnemyHead
   layers:
   - Default
   - TransparentFX
