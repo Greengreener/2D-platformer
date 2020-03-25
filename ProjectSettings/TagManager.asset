@@ -11,6 +11,8 @@ TagManager:
   - DeathGround
   - BonusJump
   - Heart
+  - Carrot
+  - DarkVision
   layers:
   - Default
   - TransparentFX
@@ -20,10 +22,10 @@ TagManager:
   - UI
   - 
   - 
-  - Invincibility
-  - 
-  - 
-  - 
+  - NightVision
+  - 123
+  - 234
+  - 345
   - 
   - 
   - 

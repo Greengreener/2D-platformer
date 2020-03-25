@@ -27,11 +27,15 @@ public class Player1 : MonoBehaviour
     public bool big = false;
     public bool fast = false;
     public bool bonusJumpB = false;
+    [Header("Carrot")]
+    public bool canSee;
+
     [Header("Count Fown Times")]
     public static float baseCountDown = 15;
     public float bigCountDown;
     public float speedCountDown;
-    [Header("Sticky Bomb")]
+    public float carrotTimer;
+    /*[Header("Sticky Bomb")]
     public GameObject bombPrefab;
     public GameObject chuckPoint;
     public Vector3 chuckPointTrans;
@@ -40,9 +44,11 @@ public class Player1 : MonoBehaviour
     public Vector2 chuckPositive;
     public Vector3 mousePosition;
     public static int chuckDir = 1;
-    public Transform chuckRotation;
+    public Transform chuckRotation;*/
     [Header("UI")]
     public Text textHearts;
+
+    public GameObject darkVision;
 
     void Awake()
     {
@@ -53,6 +59,7 @@ public class Player1 : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bigCountDown = baseCountDown;
         speedCountDown = baseCountDown;
+        carrotTimer = baseCountDown + 15;
         respawnPos = transform.position;
         Debug.Log(respawnPos);
     }
@@ -138,12 +145,20 @@ public class Player1 : MonoBehaviour
             SpeedSlow();
             speedCountDown = baseCountDown;
         }
+        if (canSee)
+        {
+            CarrotCounter();
+        }
+        if (carrotTimer <= 0)
+        {
+
+        }
         #endregion
         if (hearts == 0)
         {
             Death();
         }
-        textHearts.text = ("Hearts: ") + hearts.ToString();
+        //textHearts.text = ("Hearts: ") + hearts.ToString();
 
     }
 
@@ -198,6 +213,11 @@ public class Player1 : MonoBehaviour
             Debug.Log("Babump");
             Destroy(Grounded.gameObject);
         }
+        if (Grounded.gameObject.tag == "Carrot")
+        {
+            NightVision();
+            Destroy(Grounded.gameObject);
+        }
     }
     private void OnTriggerExit2D(Collider2D Air)
     {
@@ -243,6 +263,20 @@ public class Player1 : MonoBehaviour
     public void SpeedCounter()
     {
         speedCountDown -= Time.deltaTime;
+    }    
+    public void NightVision()
+    {
+        darkVision.SetActive(false);
+        canSee = true;
+    }
+    public void DarkVision()
+    {
+        darkVision.SetActive(true);
+        carrotTimer = baseCountDown + 15;
+    }
+    public void CarrotCounter()
+    {
+        carrotTimer -= Time.deltaTime;
     }
     #endregion
 }
