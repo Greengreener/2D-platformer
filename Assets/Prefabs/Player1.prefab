@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &210937673
 Transform:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ Transform:
   m_GameObject: {fileID: 9153773062617105269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 7, z: 1}
+  m_LocalScale: {x: 1.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 9153773064452884116}
   m_RootOrder: 0
@@ -156,8 +156,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 686a740baa782934288e84db2dd2edaa, type: 3}
+  m_Color: {r: 0.40650585, g: 0.7010701, b: 0.8207547, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -177,6 +177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9153773064452884116}
   - component: {fileID: 9153773064452884117}
+  - component: {fileID: 339717865}
   - component: {fileID: 9153773064452884118}
   - component: {fileID: 794303664}
   m_Layer: 0
@@ -227,7 +228,33 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.69925857, y: 1}
+  m_Size: {x: 1.75, y: 0.75}
+  m_EdgeRadius: 0
+--- !u!61 &339717865
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153773064452884119}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.40331665}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 0.05336672}
   m_EdgeRadius: 0
 --- !u!50 &9153773064452884118
 Rigidbody2D:
@@ -264,20 +291,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   speed: 5
-  baseSpeed: 5
-  speedUp: 10
+  sprintSpeed: 7
+  speedUp: 2
   jumpSpeed: 15
   jumps: 2
   bonusJump: 0
   canJump: 0
   lives: 1
   hearts: 0
+  respawnPos: {x: 0, y: 0, z: 0}
   player1: {fileID: 9153773064452884119}
   player1Sprite: {fileID: 9153773062617105269}
   deathScreen: {fileID: 0}
   big: 0
   fast: 0
   bonusJumpB: 0
-  baseCountDown: 15
   bigCountDown: 1
   speedCountDown: 0
+  bombPrefab: {fileID: 4943192019375681753, guid: 1430d22b0f8251648a59da0d28101499,
+    type: 3}
+  chuckPoint: {fileID: 0}
+  chuckPointTrans: {x: 0, y: 0, z: 0}
+  chuckLeft: {fileID: 0}
+  chuckRight: {fileID: 0}
+  chuckPositive: {x: 0, y: 0}
+  mousePosition: {x: 0, y: 0, z: 0}
+  chuckRotation: {fileID: 0}
+  textHearts: {fileID: 0}
