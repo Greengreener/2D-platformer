@@ -47,8 +47,12 @@ public class Player1 : MonoBehaviour
     public Transform chuckRotation;*/
     [Header("UI")]
     public Text textHearts;
-
     public GameObject darkVision;
+
+    #region Delete later
+    public float cocaineTimer = 60;
+    public bool cocaine;
+    #endregion
 
     void Awake()
     {
@@ -61,7 +65,7 @@ public class Player1 : MonoBehaviour
         speedCountDown = baseCountDown;
         carrotTimer = baseCountDown + 15;
         respawnPos = transform.position;
-        Debug.Log(respawnPos);
+        Debug.Log("Respawn position " + respawnPos);
     }
 
     public void Update()
@@ -78,7 +82,7 @@ public class Player1 : MonoBehaviour
         {
             bonusJumpB = false;
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetButtonDown("Jump"))
         {
             if (canJump)
             {
@@ -92,6 +96,14 @@ public class Player1 : MonoBehaviour
                 Debug.Log("ExtraJumpLoss");
 
             }
+        }
+        if (!canJump && Input.GetButton("Jump") && rb.velocity.y <= -1)
+        {
+            rb.gravityScale = 1;
+        }
+        else
+        {
+            rb.gravityScale = 4;
         }
         #region Old code
         /*if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -151,7 +163,9 @@ public class Player1 : MonoBehaviour
         }
         if (carrotTimer <= 0)
         {
-
+            canSee = false;
+            darkVision.SetActive(true);
+            carrotTimer = baseCountDown + 15;
         }
         #endregion
         if (hearts == 0)
@@ -159,10 +173,17 @@ public class Player1 : MonoBehaviour
             Death();
         }
         //textHearts.text = ("Hearts: ") + hearts.ToString();
-
+        #region Delete later 2
+        if (cocaine)
+        {
+            CocaineTimerDown();
+        }
+        if (cocaineTimer <= 0)
+        {
+            Death();
+        }
+        #endregion
     }
-
-
     public void FixedUpdate()
     {
         //Horizontal movement
@@ -218,6 +239,13 @@ public class Player1 : MonoBehaviour
             NightVision();
             Destroy(Grounded.gameObject);
         }
+        #region Delete later 3
+        if (Grounded.gameObject.tag == "EditorOnly")
+        {
+            Cocaine();
+            Destroy(Grounded.gameObject);
+        }
+        #endregion
     }
     private void OnTriggerExit2D(Collider2D Air)
     {
@@ -277,6 +305,18 @@ public class Player1 : MonoBehaviour
     public void CarrotCounter()
     {
         carrotTimer -= Time.deltaTime;
+    }
+    #endregion
+
+    #region Delete later 4
+    public void Cocaine()
+    {
+        Time.timeScale = 10;
+        cocaine = true;
+    }
+    public void CocaineTimerDown()
+    {
+        cocaineTimer -= Time.deltaTime;
     }
     #endregion
 }
