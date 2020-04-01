@@ -82,7 +82,7 @@ public class Player1 : MonoBehaviour
         {
             bonusJumpB = false;
         }
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyBinds.keys["Jump"]))
         {
             if (canJump)
             {
@@ -94,10 +94,9 @@ public class Player1 : MonoBehaviour
                 rb.velocity = new Vector2(0, 1) * jumpSpeed;
                 bonusJump--;
                 Debug.Log("ExtraJumpLoss");
-
             }
         }
-        if (!canJump && Input.GetButton("Jump") && rb.velocity.y <= -1)
+        if (!canJump && Input.GetKey(KeyBinds.keys["Jump"]) && rb.velocity.y <= -1)
         {
             rb.gravityScale = 1;
         }
@@ -128,11 +127,11 @@ public class Player1 : MonoBehaviour
             chuckDir = 1;
         }*/
         #endregion
-        if (Input.GetButtonDown("Shift"))
+        if (Input.GetKey(KeyBinds.keys["Sprint"]))
         {
             speed = sprintSpeed;
         }
-        if (Input.GetButtonUp("Shift"))
+        if (Input.GetKeyUp(KeyBinds.keys["Sprint"]))
         {
             speed = baseSpeed;
         }
@@ -187,10 +186,17 @@ public class Player1 : MonoBehaviour
     public void FixedUpdate()
     {
         //Horizontal movement
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, 0) * speed * Time.deltaTime);
+        if (Input.GetKey(KeyBinds.keys["Left"]))
+        {
+            transform.Translate((-speed * Time.deltaTime), 0, 0);
+        }
+        if (Input.GetKey(KeyBinds.keys["Right"]))
+        {
+            transform.Translate((speed * Time.deltaTime), 0, 0);
+        }
 
         //Fast down
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyBinds.keys["Fall"]))
         {
             rb.velocity = new Vector2(0, -1) * 10;
         }
