@@ -31,6 +31,7 @@ namespace player1
         public float bigCountDown;
         public float speedCountDown;
 
+        public bool isTouchingWalls;
         void Awake()
         {
             hearts = 2;
@@ -44,7 +45,17 @@ namespace player1
 
         public void Update()
         {
-            if (jumps == 0)
+            if (isTouchingWalls)
+            {
+                if(Input.GetKeyDown(KeyCode.W))
+                {
+                    rb.velocity = new Vector2(0, 1) * jumpSpeed;
+                    isTouchingWalls = false;
+                    
+                }
+            }
+
+            if (jumps <= 0)
             {
                 canJump = false;
             }
@@ -123,6 +134,10 @@ namespace player1
 
         private void OnTriggerEnter2D(Collider2D Grounded)
         {
+            if(Grounded.gameObject.tag =="Wall")
+            {
+                isTouchingWalls = true;
+            }
             if (Grounded.gameObject.tag == "Ground")
             {
                 jumps = 2;
@@ -168,6 +183,10 @@ namespace player1
             if (Air.gameObject.tag == "Ground")
             {
                 jumps = 1;
+            }
+            if (Air.gameObject.tag == "Wall")
+            {
+                isTouchingWalls = false;
             }
         }
         public void Death()
