@@ -56,7 +56,7 @@ namespace player1
             {
                 bonusJumpB = false;
             }
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyBinds.keys["Jump"]))
             {
                 if (canJump)
                 {
@@ -75,11 +75,11 @@ namespace player1
             {
                 Death();
             }
-            if (Input.GetButtonDown("Shift"))
+            if (Input.GetKeyDown(KeyBinds.keys["Sprint"]))
             {
                 speed = sprintSpeed;
             }
-            if (Input.GetButtonUp("Shift"))
+            if (Input.GetKeyUp(KeyBinds.keys["Sprint"]))
             {
                 speed = baseSpeed;
             }
@@ -115,7 +115,7 @@ namespace player1
             transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, 0) * speed * Time.deltaTime);
 
             //Fast down
-            if (Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyBinds.keys["Fall"]))
             {
                 rb.velocity = new Vector2(0, -1) * 10;
             }
