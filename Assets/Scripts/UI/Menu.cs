@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Menu : MonoBehaviour
@@ -9,6 +10,7 @@ public class Menu : MonoBehaviour
     private float masterVol;
     public AudioMixer masterAudio;
     public bool muted;
+    public bool isFullScreen;
     public void ChangeScene(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
@@ -54,5 +56,39 @@ public class Menu : MonoBehaviour
         {
             masterAudio.SetFloat("mastervol", masterVol);
         }
+    }
+    public void Quality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+    public void SetFullScreen(bool isFullScreen)
+    {
+        Screen.fullScreen = isFullScreen;
+    }
+    public Resolution[] resolutions;
+    public Dropdown resolution;
+    private void Start()
+    {
+        resolutions = Screen.resolutions;
+        resolution.ClearOptions();
+        List<string> options = new List<string>();
+        int currentResolutionIndex = 0;
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + "x" + resolutions[i].height;
+            options.Add(option);
+            if(resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
+            {
+                currentResolutionIndex = i;
+            }
+        }
+        resolution.AddOptions(options);
+        resolution.value = currentResolutionIndex;
+        resolution.RefreshShownValue();
+    }
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution res = resolutions[resolutionIndex];
+        Screen.SetResolution(res.width, res.height, Screen.fullScreen);
     }
 }
