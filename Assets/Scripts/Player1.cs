@@ -45,6 +45,13 @@ public class Player1 : MonoBehaviour
     public Vector3 mousePosition;
     public static int chuckDir = 1;
     public Transform chuckRotation;*/
+
+    [Header("Objectives")]
+    public bool object1;
+    public bool object2;
+    public bool object3;
+    public GameObject winScreen;
+
     [Header("UI")]
     public Text textHearts;
     public GameObject darkVision;
@@ -70,6 +77,7 @@ public class Player1 : MonoBehaviour
 
     public void Update()
     {
+        #region Jumps
         if (jumps == 0)
         {
             canJump = false;
@@ -105,7 +113,8 @@ public class Player1 : MonoBehaviour
         {
             rb.gravityScale = 4;
         }
-        #region Old code
+        #endregion
+        #region Old grenade code
         /*if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             mousePosition = Input.mousePosition;
@@ -173,6 +182,11 @@ public class Player1 : MonoBehaviour
             Death();
         }
         //textHearts.text = ("Hearts: ") + hearts.ToString();
+        if (object1 && object2 && object3)
+        {
+            winScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
         #region Delete later 2
         if (cocaine)
         {
@@ -237,6 +251,21 @@ public class Player1 : MonoBehaviour
         if (Grounded.gameObject.tag == "Carrot")
         {
             NightVision();
+            Destroy(Grounded.gameObject);
+        }
+        if (Grounded.gameObject.tag == "Object1")
+        {
+            object1 = true;
+            Destroy(Grounded.gameObject);
+        }
+        if (Grounded.gameObject.tag == "Object2")
+        {
+            object2 = true;
+            Destroy(Grounded.gameObject);
+        }
+        if (Grounded.gameObject.tag == "Object3")
+        {
+            object3 = true;
             Destroy(Grounded.gameObject);
         }
         #region Delete later 3

@@ -13,6 +13,9 @@ TagManager:
   - Heart
   - Carrot
   - DarkVision
+  - Object1
+  - Object2
+  - Object3
   layers:
   - Default
   - TransparentFX
