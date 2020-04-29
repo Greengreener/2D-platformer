@@ -30,7 +30,7 @@ public class Player1 : MonoBehaviour
     [Header("Carrot")]
     public bool canSee;
 
-    [Header("Count Fown Times")]
+    [Header("Count Down Times")]
     public static float baseCountDown = 15;
     public float bigCountDown;
     public float speedCountDown;
@@ -51,6 +51,7 @@ public class Player1 : MonoBehaviour
     public bool object2;
     public bool object3;
     public GameObject winScreen;
+    public float winTimer;
 
     [Header("UI")]
     public Text textHearts;
@@ -71,6 +72,7 @@ public class Player1 : MonoBehaviour
         bigCountDown = baseCountDown;
         speedCountDown = baseCountDown;
         carrotTimer = baseCountDown + 15;
+        winTimer = 1;
         respawnPos = transform.position;
         Debug.Log("Respawn position " + respawnPos);
     }
@@ -184,8 +186,13 @@ public class Player1 : MonoBehaviour
         //textHearts.text = ("Hearts: ") + hearts.ToString();
         if (object1 && object2 && object3)
         {
-            winScreen.SetActive(true);
-            Time.timeScale = 0;
+            WinCounter();
+            Time.timeScale = 0.5f;
+            if (winTimer <= 0)
+            {
+                winScreen.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
         #region Delete later 2
         if (cocaine)
@@ -336,6 +343,11 @@ public class Player1 : MonoBehaviour
         carrotTimer -= Time.deltaTime;
     }
     #endregion
+
+    public void WinCounter()
+    {
+        winTimer -= Time.deltaTime;
+    }
 
     #region Delete later 4
     public void Cocaine()
