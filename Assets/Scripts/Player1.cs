@@ -20,6 +20,7 @@ public class Player1 : MonoBehaviour
     [Header("Lives")]
     public int lives = 1;
     public int hearts;
+    public GameObject Health6, Health5, Health4, Health3, Health2, Health1;
     public Vector3 respawnPos;
     [Header("Objects")]
     public GameObject player1, player1Sprite, deathScreen, pause;
@@ -57,7 +58,7 @@ public class Player1 : MonoBehaviour
 
     void Awake()
     {
-        hearts = 100;
+        hearts = 6;
     }
     void Start()
     {
@@ -180,6 +181,7 @@ public class Player1 : MonoBehaviour
         if (hearts == 0)
         {
             Death();
+            Health1.SetActive(false);
         }
         //textHearts.text = ("Hearts: ") + hearts.ToString();
         #region Delete later 2
@@ -190,6 +192,47 @@ public class Player1 : MonoBehaviour
         if (cocaineTimer <= 0)
         {
             Death();
+        }
+        #endregion
+        #region Health
+        if(hearts == 6)
+        {
+            Health6.SetActive(true);
+        }
+        if (hearts == 5)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(true);
+        }
+        if (hearts == 4)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(false);
+            Health4.SetActive(true);
+        }
+        if (hearts == 3)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(false);
+            Health4.SetActive(false);
+            Health3.SetActive(true);
+        }
+        if (hearts == 2)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(false);
+            Health4.SetActive(false);
+            Health3.SetActive(false);
+            Health2.SetActive(true);
+        }
+        if (hearts == 1)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(false);
+            Health4.SetActive(false);
+            Health3.SetActive(false);
+            Health2.SetActive(false);
+            Health1.SetActive(true);
         }
         #endregion
     }
@@ -223,6 +266,10 @@ public class Player1 : MonoBehaviour
             this.transform.position = respawnPos;
             rb.velocity = new Vector3(0, 0, 0);
             jumps = baseJumps;
+            hearts--;
+        }
+        if (Grounded.gameObject.tag == "Enemy")
+        {
             hearts--;
         }
         if (Grounded.gameObject.tag == "ScaleUp" && big == false)
@@ -350,4 +397,4 @@ public class Player1 : MonoBehaviour
                 break;
         }
     }
-    }
+}
