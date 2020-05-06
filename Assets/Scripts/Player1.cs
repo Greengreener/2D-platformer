@@ -53,6 +53,11 @@ public class Player1 : MonoBehaviour
     public GameObject winScreen;
     public float winTimer;
 
+    [Header("Animation")]
+    public Animator animator;
+    public float horizontalMovement;
+    public GameObject spriteRenderer;
+
     [Header("UI")]
     public Text textHearts;
     public GameObject darkVision;
@@ -204,12 +209,23 @@ public class Player1 : MonoBehaviour
             Death();
         }
         #endregion
+        if (horizontalMovement <= 0.1f)
+        {
+            //spriteRenderer.transform.Rotate(new Vector3(0, -180, 0));
+            //spriteRenderer.transform.SetPositionAndRotation(new Vector3(0, 0, 0), );
+            this.gameObject.Transform.eulerAngles.y = 
+        }
+        if (horizontalMovement >=0)
+        {
+            //spriteRenderer.transform.Rotate(new Vector3(0, 180, 0));
+        }
     }
     public void FixedUpdate()
     {
         //Horizontal movement
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, 0) * speed * Time.deltaTime);
-
+        horizontalMovement = Input.GetAxisRaw("Horizontal") * speed;
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
         //Fast down
         if (Input.GetKey(KeyCode.S))
         {
