@@ -22,7 +22,7 @@ public class Player1 : MonoBehaviour
     public int hearts;
     public Vector3 respawnPos;
     [Header("Objects")]
-    public GameObject player1, player1Sprite, deathScreen;
+    public GameObject player1, player1Sprite, deathScreen, pause;
     [Header("Power Up Bools")]
     public bool big = false;
     public bool fast = false;
@@ -48,6 +48,7 @@ public class Player1 : MonoBehaviour
     [Header("UI")]
     public Text textHearts;
     public GameObject darkVision;
+    public bool isPaused;
 
     #region Delete later
     public float cocaineTimer = 60;
@@ -104,6 +105,15 @@ public class Player1 : MonoBehaviour
         {
             rb.gravityScale = 4;
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                if(player1Sprite == isActiveAndEnabled)
+                {
+                    setTimeScale(0);
+                    pause.SetActive(true);
+                }
+            }
         #region Old code
         /*if (Input.GetKeyDown(KeyCode.Mouse0))
         {
@@ -325,4 +335,19 @@ public class Player1 : MonoBehaviour
         cocaineTimer -= Time.deltaTime;
     }
     #endregion
-}
+    public void setTimeScale(int type)
+    {
+        switch (type)
+        {
+            case 0:
+                Time.timeScale = 0;
+                break;
+            case 1:
+                Time.timeScale = 1;
+                break;
+            case 2:
+                Time.timeScale = 4;
+                break;
+        }
+    }
+    }
