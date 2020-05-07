@@ -32,7 +32,6 @@ public class EnemyFollow : MonoBehaviour
         {
             foundPlayer = false;
             transform.Translate(Vector2.right * speed * Time.deltaTime);
-
         }
 
         if (groundInfo.collider == false)

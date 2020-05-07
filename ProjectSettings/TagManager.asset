@@ -12,6 +12,9 @@ TagManager:
   - BonusJump
   - Heart
   - EnemyHead
+  - Wall
+  - Projectile
+  - Enemy
   layers:
   - Default
   - TransparentFX

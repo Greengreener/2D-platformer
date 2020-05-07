@@ -36,4 +36,8 @@ public class PatrolEnemy : MonoBehaviour
             }
         }
     }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
 }

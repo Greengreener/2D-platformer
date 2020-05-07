@@ -32,6 +32,12 @@ namespace player1
         public float speedCountDown;
 
         public bool isTouchingWalls;
+
+        public float dashSpeed;
+        public float dashTime;
+        public float dashStartTime;
+        private int direction;
+        public Vector2 dashDirection;
         void Awake()
         {
             hearts = 2;
@@ -41,10 +47,12 @@ namespace player1
             rb = GetComponent<Rigidbody2D>();
             bigCountDown = baseCountDown;
             speedCountDown = baseCountDown;
+            dashTime = dashStartTime;
         }
 
         public void Update()
         {
+            // Dash();
             if (isTouchingWalls)
             {
                 if(Input.GetKeyDown(KeyCode.W))
@@ -174,9 +182,18 @@ namespace player1
             if (Grounded.gameObject.tag == "EnemyHead")
             {
                 rb.velocity = new Vector2(0, 1) * jumpSpeed;
-
                 Destroy(Grounded.transform.parent.gameObject);
+                Debug.Log("Stompd");
              }
+        }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Enemy")
+            {
+                hearts--;
+                Death();
+                Debug.Log("Oof");
+            }
         }
         private void OnTriggerExit2D(Collider2D Air)
         {
@@ -226,5 +243,9 @@ namespace player1
             speedCountDown -= Time.deltaTime;
         }
         #endregion
+
     }
+
 }
+    
+
