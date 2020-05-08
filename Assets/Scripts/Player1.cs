@@ -69,7 +69,7 @@ public class Player1 : MonoBehaviour
 
     void Awake()
     {
-        hearts = 100;
+        hearts = 6;
     }
     void Start()
     {
@@ -209,15 +209,14 @@ public class Player1 : MonoBehaviour
             Death();
         }
         #endregion
-        if (horizontalMovement <= 0.1f)
+        //Sprite rotation due to movement
+        if (horizontalMovement >= 0.1f)
         {
-            //spriteRenderer.transform.Rotate(new Vector3(0, -180, 0));
-            //spriteRenderer.transform.SetPositionAndRotation(new Vector3(0, 0, 0), );
-            this.gameObject.Transform.eulerAngles.y = 
+            spriteRenderer.transform.SetPositionAndRotation(spriteRenderer.transform.position, Quaternion.EulerRotation(new Vector3(0, 0, 0)));
         }
-        if (horizontalMovement >=0)
+        if (horizontalMovement <= -0.1f)
         {
-            //spriteRenderer.transform.Rotate(new Vector3(0, 180, 0));
+            spriteRenderer.transform.SetPositionAndRotation(spriteRenderer.transform.position, Quaternion.EulerRotation(new Vector3(0, 600, 0)));
         }
     }
     public void FixedUpdate()
@@ -235,10 +234,12 @@ public class Player1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D Grounded)
     {
+        //Grounding the player
         if (Grounded.gameObject.tag == "Ground")
         {
             jumps = 2;
         }
+        //Death box
         if (Grounded.gameObject.tag == "DeathGround")
         {
             this.transform.position = respawnPos;
@@ -246,18 +247,21 @@ public class Player1 : MonoBehaviour
             jumps = baseJumps;
             hearts--;
         }
+        //Spinach power up
         if (Grounded.gameObject.tag == "ScaleUp" && big == false)
         {
             Debug.Log("Embiggen");
             GrowBig();
             Destroy(Grounded.gameObject);
         }
+        //Chilli power up
         if (Grounded.gameObject.tag == "SpeedUp" && fast == false)
         {
             Debug.Log("Sanic");
             SpeedFast();
             Destroy(Grounded.gameObject);
         }
+        //Banana power up
         if (Grounded.gameObject.tag == "BonusJump")
         {
             bonusJump++;
@@ -265,27 +269,32 @@ public class Player1 : MonoBehaviour
             Destroy(Grounded.gameObject);
             Debug.Log("Extra jump");
         }
+        //Cheese power up
         if (Grounded.gameObject.tag == "Heart")
         {
             hearts++;
             Debug.Log("Babump");
             Destroy(Grounded.gameObject);
         }
+        //Carrot power up
         if (Grounded.gameObject.tag == "Carrot")
         {
             NightVision();
             Destroy(Grounded.gameObject);
         }
+        //First objective
         if (Grounded.gameObject.tag == "Object1")
         {
             object1 = true;
             Destroy(Grounded.gameObject);
         }
+        //Second objective
         if (Grounded.gameObject.tag == "Object2")
         {
             object2 = true;
             Destroy(Grounded.gameObject);
         }
+        //Third objective
         if (Grounded.gameObject.tag == "Object3")
         {
             object3 = true;
@@ -301,6 +310,7 @@ public class Player1 : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D Air)
     {
+        //Leaving the ground
         if (Air.gameObject.tag == "Ground")
         {
             jumps = 1;
@@ -343,7 +353,7 @@ public class Player1 : MonoBehaviour
     public void SpeedCounter()
     {
         speedCountDown -= Time.deltaTime;
-    }    
+    }
     public void NightVision()
     {
         darkVision.SetActive(false);

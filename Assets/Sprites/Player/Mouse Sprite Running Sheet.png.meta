@@ -74,6 +74,12 @@ TextureImporter:
   - first:
       213: -5551346709633502779
     second: Mouse Sprite Running Sheet_23
+  - first:
+      213: -4914715770951448398
+    second: Mouse Sprite Running Sheet_24
+  - first:
+      213: 2287283335797881905
+    second: Mouse Sprite Running Sheet_25
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -161,12 +167,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 26
+        width: 27
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.4150852, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,12 +188,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 27
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -203,12 +209,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 59
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -224,12 +230,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_3
       rect:
         serializedVersion: 2
-        x: 97
+        x: 91
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -245,12 +251,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_4
       rect:
         serializedVersion: 2
-        x: 129
+        x: 123
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -266,12 +272,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_5
       rect:
         serializedVersion: 2
-        x: 161
+        x: 155
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -287,12 +293,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_6
       rect:
         serializedVersion: 2
-        x: 193
+        x: 187
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -308,12 +314,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_7
       rect:
         serializedVersion: 2
-        x: 225
+        x: 219
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -329,12 +335,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_8
       rect:
         serializedVersion: 2
-        x: 257
+        x: 251
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -350,12 +356,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_9
       rect:
         serializedVersion: 2
-        x: 288
+        x: 283
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -371,12 +377,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_10
       rect:
         serializedVersion: 2
-        x: 320
+        x: 315
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -392,12 +398,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_11
       rect:
         serializedVersion: 2
-        x: 352
+        x: 347
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -413,12 +419,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_12
       rect:
         serializedVersion: 2
-        x: 385
+        x: 379
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -434,12 +440,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_13
       rect:
         serializedVersion: 2
-        x: 416
+        x: 411
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -455,12 +461,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_14
       rect:
         serializedVersion: 2
-        x: 448
+        x: 443
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -476,12 +482,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_15
       rect:
         serializedVersion: 2
-        x: 481
+        x: 475
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -497,12 +503,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_16
       rect:
         serializedVersion: 2
-        x: 513
+        x: 507
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -518,12 +524,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_17
       rect:
         serializedVersion: 2
-        x: 545
+        x: 539
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -539,12 +545,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_18
       rect:
         serializedVersion: 2
-        x: 577
+        x: 571
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -560,12 +566,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_19
       rect:
         serializedVersion: 2
-        x: 609
+        x: 603
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -581,12 +587,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_20
       rect:
         serializedVersion: 2
-        x: 641
+        x: 635
         y: 0
-        width: 26
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -602,12 +608,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_21
       rect:
         serializedVersion: 2
-        x: 672
+        x: 667
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -623,12 +629,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_22
       rect:
         serializedVersion: 2
-        x: 704
+        x: 699
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -644,12 +650,12 @@ TextureImporter:
       name: Mouse Sprite Running Sheet_23
       rect:
         serializedVersion: 2
-        x: 736
+        x: 731
         y: 0
-        width: 27
+        width: 32
         height: 32
-      alignment: 6
-      pivot: {x: 0, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -657,6 +663,48 @@ TextureImporter:
       bones: []
       spriteID: 81216bbeba0e62349862c78d689858f2
       internalID: -5551346709633502779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouse Sprite Running Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 365
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a225cc8c3195ec74e93039b4f057fded
+      internalID: -4914715770951448398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouse Sprite Running Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c31564ad2b6a8f045bd369a04533c840
+      internalID: 2287283335797881905
       vertices: []
       indices: 
       edges: []

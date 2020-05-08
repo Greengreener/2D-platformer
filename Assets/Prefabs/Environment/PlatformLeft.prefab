@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 771768074618505180}
   - component: {fileID: 771768074618505171}
   - component: {fileID: 771768074618505182}
+  - component: {fileID: -8392157501286721679}
   m_Layer: 0
-  m_Name: Ground
+  m_Name: PlatformLeft
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7a831b0546a3bcd41b925391da748a72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea5addac92bb1414c861cfb46c9d2ff3, type: 3}
   m_Color: {r: 1, g: 0.99150276, b: 0.8160377, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,10 +120,29 @@ EdgeCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
   - {x: 0.16, y: 0.156}
   - {x: -0.16, y: 0.156}
+--- !u!251 &-8392157501286721679
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771768074618505170}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 170
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
