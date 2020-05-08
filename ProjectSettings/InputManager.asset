@@ -7,8 +7,8 @@ InputManager:
   m_Axes:
   - serializedVersion: 3
     m_Name: Horizontal
-    descriptiveName: 
-    descriptiveNegativeName: 
+    descriptiveName: Left
+    descriptiveNegativeName: Right
     negativeButton: left
     positiveButton: right
     altNegativeButton: a
@@ -42,7 +42,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left ctrl
+    positiveButton: 
     altNegativeButton: 
     altPositiveButton: mouse 0
     gravity: 1000

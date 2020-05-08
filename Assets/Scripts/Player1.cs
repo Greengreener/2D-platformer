@@ -20,9 +20,10 @@ public class Player1 : MonoBehaviour
     [Header("Lives")]
     public int lives = 1;
     public int hearts;
+    public GameObject Health6, Health5, Health4, Health3, Health2, Health1;
     public Vector3 respawnPos;
     [Header("Objects")]
-    public GameObject player1, player1Sprite, deathScreen;
+    public GameObject player1, player1Sprite, deathScreen, pause;
     [Header("Power Up Bools")]
     public bool big = false;
     public bool fast = false;
@@ -61,6 +62,7 @@ public class Player1 : MonoBehaviour
     [Header("UI")]
     public Text textHearts;
     public GameObject darkVision;
+    public bool isPaused;
 
     #region Delete later
     public float cocaineTimer = 60;
@@ -97,7 +99,7 @@ public class Player1 : MonoBehaviour
         {
             bonusJumpB = false;
         }
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyBinds.keys["Jump"]))
         {
             if (canJump)
             {
@@ -109,10 +111,9 @@ public class Player1 : MonoBehaviour
                 rb.velocity = new Vector2(0, 1) * jumpSpeed;
                 bonusJump--;
                 Debug.Log("ExtraJumpLoss");
-
             }
         }
-        if (!canJump && Input.GetButton("Jump") && rb.velocity.y <= -1)
+        if (!canJump && Input.GetKey(KeyBinds.keys["Jump"]) && rb.velocity.y <= -1)
         {
             rb.gravityScale = 1;
         }
@@ -122,6 +123,16 @@ public class Player1 : MonoBehaviour
         }
         #endregion
         #region Old grenade code
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                if(player1Sprite == isActiveAndEnabled)
+                {
+                    setTimeScale(0);
+                    pause.SetActive(true);
+                }
+            }
+        #region Old code
         /*if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             mousePosition = Input.mousePosition;
@@ -144,11 +155,11 @@ public class Player1 : MonoBehaviour
             chuckDir = 1;
         }*/
         #endregion
-        if (Input.GetButtonDown("Shift"))
+        if (Input.GetKey(KeyBinds.keys["Sprint"]))
         {
             speed = sprintSpeed;
         }
-        if (Input.GetButtonUp("Shift"))
+        if (Input.GetKeyUp(KeyBinds.keys["Sprint"]))
         {
             speed = baseSpeed;
         }
@@ -187,6 +198,7 @@ public class Player1 : MonoBehaviour
         if (hearts == 0)
         {
             Death();
+            Health1.SetActive(false);
         }
         //textHearts.text = ("Hearts: ") + hearts.ToString();
         if (object1 && object2 && object3)
@@ -209,7 +221,6 @@ public class Player1 : MonoBehaviour
             Death();
         }
         #endregion
-        //Sprite rotation due to movement
         if (horizontalMovement >= 0.1f)
         {
             spriteRenderer.transform.SetPositionAndRotation(spriteRenderer.transform.position, Quaternion.EulerRotation(new Vector3(0, 0, 0)));
@@ -218,6 +229,47 @@ public class Player1 : MonoBehaviour
         {
             spriteRenderer.transform.SetPositionAndRotation(spriteRenderer.transform.position, Quaternion.EulerRotation(new Vector3(0, 600, 0)));
         }
+        #region Health
+        if(hearts == 6)
+        {
+            Health6.SetActive(true);
+        }
+        if (hearts == 5)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(true);
+        }
+        if (hearts == 4)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(false);
+            Health4.SetActive(true);
+        }
+        if (hearts == 3)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(false);
+            Health4.SetActive(false);
+            Health3.SetActive(true);
+        }
+        if (hearts == 2)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(false);
+            Health4.SetActive(false);
+            Health3.SetActive(false);
+            Health2.SetActive(true);
+        }
+        if (hearts == 1)
+        {
+            Health6.SetActive(false);
+            Health5.SetActive(false);
+            Health4.SetActive(false);
+            Health3.SetActive(false);
+            Health2.SetActive(false);
+            Health1.SetActive(true);
+        }
+        #endregion
     }
     public void FixedUpdate()
     {
@@ -225,8 +277,17 @@ public class Player1 : MonoBehaviour
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, 0) * speed * Time.deltaTime);
         horizontalMovement = Input.GetAxisRaw("Horizontal") * speed;
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
+        if (Input.GetKey(KeyBinds.keys["Left"]))
+        {
+            transform.Translate((-speed * Time.deltaTime), 0, 0);
+        }
+        if (Input.GetKey(KeyBinds.keys["Right"]))
+        {
+            transform.Translate((speed * Time.deltaTime), 0, 0);
+        }
+
         //Fast down
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyBinds.keys["Fall"]))
         {
             rb.velocity = new Vector2(0, -1) * 10;
         }
@@ -247,7 +308,14 @@ public class Player1 : MonoBehaviour
             jumps = baseJumps;
             hearts--;
         }
+
         //Spinach power up
+
+        if (Grounded.gameObject.tag == "Enemy")
+        {
+            hearts--;
+        }
+
         if (Grounded.gameObject.tag == "ScaleUp" && big == false)
         {
             Debug.Log("Embiggen");
@@ -384,6 +452,22 @@ public class Player1 : MonoBehaviour
     public void CocaineTimerDown()
     {
         cocaineTimer -= Time.deltaTime;
+    }
+    #endregion
+    public void setTimeScale(int type)
+    {
+        switch (type)
+        {
+            case 0:
+                Time.timeScale = 0;
+                break;
+            case 1:
+                Time.timeScale = 1;
+                break;
+            case 2:
+                Time.timeScale = 4;
+                break;
+        }
     }
     #endregion
 }
