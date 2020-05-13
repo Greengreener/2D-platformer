@@ -6,6 +6,7 @@ public class PressAnyKey : MonoBehaviour
 {
     public GameObject pressAnyKeyPanel;
     public GameObject menuPanel;
+    private int counter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +16,14 @@ public class PressAnyKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKey)
+        if (counter == 0)
         {
-            menuPanel.SetActive(true);
-            pressAnyKeyPanel.SetActive(false);
+            if (Input.anyKey)
+            {
+                counter += 1;
+                menuPanel.SetActive(true);
+                pressAnyKeyPanel.SetActive(false);
+            }
         }
     }
 }
