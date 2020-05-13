@@ -12,17 +12,20 @@ public class KeyBinds : MonoBehaviour
 
     void Start()
     {
-        keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A")));
-        keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
-        keys.Add("Jump", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "Space")));
-        keys.Add("Sprint", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Sprint", "LeftShift")));
-        keys.Add("Fall", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Fall", "S")));
+        if (!keys.ContainsKey("Left"))
+        {
+            keys.Add("Left", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Left", "A")));
+            keys.Add("Right", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Right", "D")));
+            keys.Add("Jump", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Jump", "Space")));
+            keys.Add("Sprint", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Sprint", "LeftShift")));
+            keys.Add("Fall", (KeyCode)System.Enum.Parse(typeof(KeyCode), PlayerPrefs.GetString("Fall", "S")));
 
-        left.text = keys["Left"].ToString();
-        right.text = keys["Right"].ToString();
-        jump.text = keys["Jump"].ToString();
-        sprint.text = keys["Sprint"].ToString();
-        fall.text = keys["Fall"].ToString();
+            left.text = keys["Left"].ToString();
+            right.text = keys["Right"].ToString();
+            jump.text = keys["Jump"].ToString();
+            sprint.text = keys["Sprint"].ToString();
+            fall.text = keys["Fall"].ToString();
+        }
     }
     private void OnGUI()
     {

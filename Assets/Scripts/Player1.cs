@@ -126,11 +126,8 @@ public class Player1 : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Escape))
             {
-                if(player1Sprite == isActiveAndEnabled)
-                {
-                    setTimeScale(0);
-                    pause.SetActive(true);
-                }
+                setTimeScale(0);
+                pause.SetActive(true);
             }
         #region Old code
         /*if (Input.GetKeyDown(KeyCode.Mouse0))
@@ -223,11 +220,11 @@ public class Player1 : MonoBehaviour
         #endregion
         if (horizontalMovement >= 0.1f)
         {
-            spriteRenderer.transform.SetPositionAndRotation(spriteRenderer.transform.position, Quaternion.EulerRotation(new Vector3(0, 0, 0)));
+            spriteRenderer.transform.SetPositionAndRotation(spriteRenderer.transform.position, Quaternion.Euler(new Vector3(0, 0, 0)));
         }
         if (horizontalMovement <= -0.1f)
         {
-            spriteRenderer.transform.SetPositionAndRotation(spriteRenderer.transform.position, Quaternion.EulerRotation(new Vector3(0, 600, 0)));
+            spriteRenderer.transform.SetPositionAndRotation(spriteRenderer.transform.position, Quaternion.Euler(new Vector3(0, 600, 0)));
         }
         #region Health
         if(hearts == 6)
